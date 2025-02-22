@@ -13,13 +13,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class panelinicio extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_panelinicio);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -28,28 +28,14 @@ public class MainActivity extends AppCompatActivity {
 
         //INICIAR OBJETOS PARA CADA CONTROL EN XML - JAVA - XML
 
-        Button btnLogin = findViewById(R.id.btnLogin);
+        Button btncerrarsesion = findViewById(R.id.btncerrarsesion);
 
-        TextView lblRegistrate = findViewById(R.id.lblRegistrate);
-        TextView lblResetPass = findViewById(R.id.lblResetPass);
+        //BUTTON btncancelregist debe abrir view -> MainActivity
 
-        EditText txtEmail = findViewById(R.id.txtEmailLogin);
-        EditText txtPassLogin = findViewById(R.id.txtPassLogin);
-
-        //TXTVIEW lblregistrate debe abrir view -> Register
-
-        lblRegistrate.setOnClickListener(new View.OnClickListener() {
+        btncerrarsesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent conectar = new Intent(MainActivity.this,register.class);
-                startActivity(conectar);
-            }
-        });
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent conectar = new Intent(MainActivity.this,panelinicio.class);
+                Intent conectar = new Intent(panelinicio.this,MainActivity.class);
                 startActivity(conectar);
             }
         });
